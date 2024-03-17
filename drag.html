@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list {
+            width: 520px;
+            list-style: none;
+            margin: 0px auto;
+            padding: 0px;
+
+        }
+
+        .list-item {
+            height: 48px;
+            color: #000;
+            font-size: 20px;
+            line-height: 48px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: .2s linear;
+            background-image: linear-gradient(45deg, #00ffaa, #f0ff88, #9900ff);
+        }
+
+        .list-item.dragging {
+            opacity: 0.5;
+            border: 2px dashed #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list" id="dragList">
+        <li id="1" draggable="true" data-drop="move" class="list-item">1</li>
+        <li id="2" draggable="true" data-drop="move" class="list-item">2</li>
+        <li id="3" draggable="true" data-drop="move" class="list-item">3</li>
+    </ul>
+
+    <script>
+        const container = document.getElementById('dragList')
+        let soucerNode
+        container.addEventListener('dragstart', (ev) => {
+            console.log('开始拖拽')
+            const target = ev.target
+            soucerNode = target
+        })
+        container.addEventListener('dragover', ev => {
+            soucerNode.classList.add('dragging')
+        })
+
+        container.addEventListener('dragenter', (ev) => {
+            if (ev.target === soucerNode) {
+                return
+            }
+            const childrens = new Array(...container.children)
+            console.log(childrens)
+        })
+        container.addEventListener('dragdrop', (ev) => {
+            ev.target.preventDefault()
+            soucerNode.classList.remove('dragging')
+        })
+    </script>
+</body>
+
+</html>
