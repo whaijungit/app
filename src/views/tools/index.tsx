@@ -3,8 +3,6 @@ import { Input } from 'antd'
 import toolimgURL from './tool.png'
 import { search } from '@/common/svg'
 
-
-
 const Groups: React.FC = () => {
     return (
         <div className='cloud'>

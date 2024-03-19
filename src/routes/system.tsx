@@ -45,7 +45,6 @@ export const systemkRoutes: RouteObject[] = [
                 path: 'images',
                 element: <>images</>,
             },
-            ,
             {
                 path: 'operates',
                 element: <>operates</>,
