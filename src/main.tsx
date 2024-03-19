@@ -5,6 +5,7 @@ import { StrictMode } from 'react'
 import { RecoilRoot } from 'recoil'
 import { createRoot } from 'react-dom/client'
 import { configure } from 'nprogress'
+import { Drag } from './drag'
 
 configure({ speed: 50 });
 
@@ -14,7 +15,8 @@ configure({ speed: 50 });
         createRoot(domEement).render((
             <StrictMode>
                 <RecoilRoot>
-                    <App />
+                    <Drag />
+                    {/* <App /> */}
                 </RecoilRoot>
             </StrictMode>
         ))

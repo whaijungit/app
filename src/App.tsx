@@ -11,6 +11,7 @@ const App: React.FC = () => {
             <ConfigProvider
                 {...configProviderProps}
             >
+
                 <Router />
             </ConfigProvider>
         </BrowserRouter>

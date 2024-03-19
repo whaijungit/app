@@ -1,7 +1,7 @@
-import bg from './bg.png'
 import { Input } from 'antd'
-import toolimgURL from './tool.png'
+import bg from './images/bg.png'
 import { search } from '@/common/svg'
+import toolimgURL from './images/tool.png'
 
 const Groups: React.FC = () => {
     return (
