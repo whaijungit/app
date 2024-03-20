@@ -11,3 +11,7 @@ export const awit = (duration: number = getRandom()) => {
         }, duration);
     })
 }
+
+export const getToken = () => {
+    localStorage.getItem('token')
+}
