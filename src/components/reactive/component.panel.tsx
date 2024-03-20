@@ -1,4 +1,7 @@
-import { Input, Slider, Switch, cascader, checkbox, chooseData, chooseDataAdd, collapse, color, object, radio, select, selects } from './icons'
+import {
+    Input, Slider, Switch, cascader, checkbox, chooseData,
+    chooseDataAdd, collapse, color, object, radio, select, selects
+} from './icons'
 
 const Components = [
     {

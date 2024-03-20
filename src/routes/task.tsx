@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { Outlet, RouteObject } from 'react-router-dom'
 import { Layout, AsideSection } from '@/components/layout'
-import { ReactiveView } from '@/components/reactive/reactive.view'
+import { ReactiveView } from '@/components/reactive'
 
 export const taskRoutes: RouteObject[] = [
     {

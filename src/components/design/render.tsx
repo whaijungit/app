@@ -1,10 +1,10 @@
 import { Option } from './core'
+import { Radio } from './radio'
 import { Switch } from './switch'
 import { CheckBox } from './checkbox'
 import { Collapse } from './collapse'
 import { InputChooseData } from './input'
 import { ColorPicker, Form, Input, Select } from 'antd'
-import { Radio } from './radio'
 
 export const renderFormItem = (options: Option[]) => {
     return options.map((opt, index) => (
