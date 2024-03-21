@@ -1,14 +1,14 @@
 import './index.less'
-import { RenderView } from './render.view'
-import { PropretyPanel } from './proprety.panel'
-import { ComponentPanel } from './component.panel'
+import { useState } from 'react'
+import { options } from './schema.ts'
+
+
 
 export const ReactiveView: React.FC = () => {
+    const [jsonSchema, setJsonSchema] = useState(options)
     return (
         <section className='reactive-section'>
-            <ComponentPanel />
-            <RenderView />
-            <PropretyPanel />
+            
         </section>
     )
 }

@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import { Outlet, RouteObject } from 'react-router-dom'
 import { Layout, AsideSection } from '@/components/layout'
-import { ReactiveView } from '@/components/reactive'
 
 export const taskRoutes: RouteObject[] = [
     {
@@ -10,7 +9,7 @@ export const taskRoutes: RouteObject[] = [
         children: [
             {
                 index: true,
-                element: <Suspense children={<ReactiveView />} />
+                element: <Suspense />
             },
             {
                 path: 'project',
