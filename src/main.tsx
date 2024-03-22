@@ -1,10 +1,11 @@
 import App from './App'
+import './worker/monaco'
 import './less/index.less'
 import 'nprogress/nprogress.css'
 import { StrictMode } from 'react'
 import { RecoilRoot } from 'recoil'
-import { createRoot } from 'react-dom/client'
 import { configure } from 'nprogress'
+import { createRoot } from 'react-dom/client'
 
 configure({ speed: 50 });
 
