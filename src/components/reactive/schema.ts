@@ -1,15 +1,13 @@
+import { FormItemProps } from "antd"
 import { ComponentType } from "./custom"
 
 export interface ISchema {
-    id: number
     type: ComponentType
-    formItemProps: {
-
-    },
-    componentProps: {
-
-    }
+    id?: string | number
+    componentProps: any
+    formItemProps: FormItemProps,
 }
+
 
 export const options: ISchema[] = [
     {
@@ -28,6 +26,7 @@ export const options: ISchema[] = [
             "initialValue": "hunan"
         },
         "componentProps": {
+
             "options": [
                 {
                     "label": "湖南省",

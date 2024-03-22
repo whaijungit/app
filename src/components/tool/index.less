@@ -1,0 +1,101 @@
+.tool-doc {
+    height: 100%;
+    overflow-y: auto;
+
+    .tool-doc-header {
+        gap: 20px;
+        display: flex;
+    }
+}
+
+.tool {
+    &-doc-header {
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .tool-doc-header-logo {
+            width: 120px;
+            height: 120px;
+        }
+
+        .tool-doc-header-text {
+            .tool-doc-header-title {
+                margin: 0px;
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 16px;
+            }
+
+            .tool-doc-header-desc {
+                line-height: 20px;
+            }
+
+            .tool-doc-header-author {
+                gap: 24px;
+                display: flex;
+                font-size: 12px;
+                color: var(--unimportant);
+            }
+        }
+    }
+}
+
+.args-content {
+    width: 100%;
+    padding: 0px 4px;
+    margin-top: 32.5px;
+
+    .args-item {
+        margin-bottom: 41.5px;
+
+        .args-title {
+            font-size: 16px;
+            font-weight: 600;
+
+            &::before {
+                width: 8px;
+                height: 10px;
+                content: '';
+                margin-right: 9px;
+                display: inline-block;
+                background: url(@/assets/icons/triangle.svg);
+            }
+        }
+
+        .arg-item {
+            display: flex;
+            row-gap: 12px;
+            margin-top: 30px;
+            flex-direction: column;
+
+            .arg-item-title {
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+
+            .arg-item-desc {
+                p {
+                    margin: 3px;
+                }
+            }
+
+            .arg-item-anoo {
+                background-color: var(--shalow-bg);
+                padding: 8px 16px;
+
+                p {
+                    margin: 3px;
+                }
+            }
+
+            .arg-item-table {
+                width: 100%;
+            }
+        }
+    }
+}
+
+

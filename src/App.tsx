@@ -1,4 +1,5 @@
 import { Router } from './routes'
+import './worker/monaco.worker'
 import { ConfigProvider } from 'antd'
 import { theme } from './stores/theme'
 import { useRecoilValue } from 'recoil'

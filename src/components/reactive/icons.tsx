@@ -1,3 +1,6 @@
+import React from "react"
+import { ISchema } from "./schema"
+
 export const Input = (
     <svg width="60" height="22" viewBox="0 0 60 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="0.5" y="0.5" width="59" height="21" rx="3.5" fill="white" />
@@ -63,7 +66,7 @@ export const selects = (
     </svg>
 )
 
-export const Slider = (
+export const slider = (
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="52" viewBox="0 0 64 52" fill="none">
         <rect x="2" y="24" width="60" height="4" rx="2" fill="#F3F5F9" />
         <rect x="2" y="24" width="36" height="4" rx="2" fill="#B1D1FF" />
@@ -112,7 +115,7 @@ export const collapse = (
     </svg>
 )
 
-export const chooseDataAdd = (
+export const dynamics = (
     <svg xmlns="http://www.w3.org/2000/svg" width="68" height="52" viewBox="0 0 68 52" fill="none">
         <rect x="2" y="10" width="50" height="8" rx="2" fill="#F3F5F9" />
         <rect x="2" y="34" width="60" height="8" rx="2" fill="#F3F5F9" />
@@ -134,3 +137,423 @@ export const select = (
         <rect x="10" y="21" width="40" height="10" rx="2" fill="#F3F5F9" />
     </svg>
 )
+
+export type ICpsItem = {
+    label: string
+    icon: React.ReactNode
+    template: ISchema
+}
+
+export const cps: ICpsItem[] = [
+    {
+        label: '文本',
+        icon: Input,
+        template: {
+            type: 'text',
+            formItemProps: {
+                label: '文本组件',
+                tooltip: '文本tip',
+                rules: [
+                    {
+                        required: true,
+                        message: '文本组件必填!!'
+                    }
+                ]
+            },
+            componentProps: {
+                allowClear: true,
+                placeholder: '请输入字符',
+            }
+        }
+    },
+    {
+        label: '数据选择',
+        icon: chooseData,
+        template: {
+            type: 'chooseData',
+            formItemProps: {
+                label: '文本组件',
+                tooltip: '数据选择tip',
+                rules: [
+                    {
+                        required: true,
+                        message: '数据选择必填!!'
+                    }
+                ]
+            },
+            componentProps: {
+                allowClear: true,
+                placeholder: '请输入数据选择',
+            }
+        }
+    },
+    {
+        icon: color,
+        label: '颜色选择',
+        template: {
+            type: 'color',
+            formItemProps: {
+                name: 'color',
+                label: '颜色选择',
+                tooltip: '颜色选择tip',
+                initialValue: '#ff2200',
+                rules: [
+                    {
+                        required: true,
+                        message: '数据选择必填!!'
+                    }
+                ]
+            },
+            componentProps: {
+
+            }
+        }
+    },
+    {
+        icon: Switch,
+        label: '开关',
+        template: {
+            type: 'switch',
+            formItemProps: {
+                name: 'switch',
+                label: '开关',
+                tooltip: 'switch tip',
+                initialValue: true,
+                rules: [
+                    {
+                        required: true,
+                        message: 'switch required!'
+                    }
+                ]
+            },
+            componentProps: {
+
+            }
+        }
+    },
+    {
+        icon: radio,
+        label: '单选',
+        template: {
+            type: 'radio',
+            formItemProps: {
+                name: 'radio',
+                label: 'radio',
+                tooltip: 'radio tip',
+                initialValue: 0,
+                rules: [
+                    {
+                        required: true,
+                        message: 'radio required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                options: [
+                    {
+                        label: '男',
+                        value: 0,
+                    },
+                    {
+                        label: '女',
+                        value: 1,
+                    }
+                ]
+
+            }
+        }
+    },
+    {
+        label: '多选',
+        icon: checkbox,
+        template: {
+            type: 'checkbox',
+            formItemProps: {
+                name: 'checkbox',
+                label: 'checkbox',
+                tooltip: 'checkbox tip',
+                initialValue: 0,
+                rules: [
+                    {
+                        required: true,
+                        message: 'checkbox required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                options: [
+                    {
+                        label: '冰淇淋',
+                        value: '冰淇淋',
+                    },
+                    {
+                        label: '必胜客',
+                        value: '必胜客',
+                    },
+                    {
+                        label: '达美乐',
+                        value: '达美乐',
+                    }
+                ]
+
+            }
+        }
+    },
+    {
+        label: '下拉单选',
+        icon: select,
+        template: {
+            type: 'select',
+            formItemProps: {
+                name: 'select',
+                label: 'select',
+                initialValue: "冰淇淋",
+                tooltip: 'select tip',
+                rules: [
+                    {
+                        required: true,
+                        message: 'select required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                options: [
+                    {
+                        label: '冰淇淋',
+                        value: '冰淇淋',
+                    },
+                    {
+                        label: '必胜客',
+                        value: '必胜客',
+                    },
+                    {
+                        label: '达美乐',
+                        value: '达美乐',
+                    }
+                ]
+
+            }
+        }
+    },
+    {
+        icon: selects,
+        label: '下拉多选',
+        template: {
+            type: 'selects',
+            formItemProps: {
+                name: 'selects',
+                label: 'selects',
+                tooltip: 'selects tip',
+                initialValue: ['冰淇淋'],
+                rules: [
+                    {
+                        required: true,
+                        message: 'selects required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                options: [
+                    {
+                        label: '冰淇淋',
+                        value: '冰淇淋',
+                    },
+                    {
+                        label: '必胜客',
+                        value: '必胜客',
+                    },
+                    {
+                        label: '达美乐',
+                        value: '达美乐',
+                    }
+                ]
+
+            }
+        }
+    },
+    {
+        label: '滑动输入条',
+        icon: slider,
+        template: {
+            type: 'sliderNumber',
+            formItemProps: {
+                name: 'sliderNumber',
+                label: 'sliderNumber',
+                tooltip: 'sliderNumber tip',
+                initialValue: 1,
+                rules: [
+                    {
+                        required: true,
+                        message: 'sliderNumber required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                min: 1,
+                max: 20,
+                step: 0.5
+            }
+        }
+    },
+    {
+        icon: cascader,
+        label: '级联选择器',
+        template: {
+            type: 'cascader',
+            formItemProps: {
+                name: 'cascader',
+                label: '级联选择器',
+                tooltip: 'cascader tip',
+                initialValue: ["hunan", "changsha", "furuqu"],
+                rules: [
+                    {
+                        required: true,
+                        message: 'cascader required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                allowClear: true,
+                placeholder: '请输入数据选择',
+                options: [{
+                    "label": "湖南省",
+                    "value": "hunan",
+                    "children": [
+                        {
+                            "label": "长沙",
+                            "value": "changsha",
+                            "children": [
+                                {
+                                    "label": "芙蓉区",
+                                    "value": "furuqu"
+                                },
+                                {
+                                    "label": "天心区",
+                                    "value": "tianxinqu"
+                                },
+                                {
+                                    "label": "岳麓区",
+                                    "value": "yueluoqu"
+                                }
+                            ]
+                        }
+                    ]
+                }],
+            }
+        }
+    },
+    {
+        label: '动态删减',
+        icon: dynamics,
+        template: {
+            type: 'dynamicsChooseData',
+            formItemProps: {
+                name: 'dynamics',
+                label: '动态删减',
+                tooltip: 'dynamics ChooseData tip',
+                initialValue: 1,
+                rules: [
+                    {
+                        required: true,
+                        message: 'dynamics required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                allowClear: true,
+                placeholder: '请输入数据选择',
+                options: [{
+                    "label": "湖南省",
+                    "value": "hunan",
+                    "children": [
+                        {
+                            "label": "长沙",
+                            "value": "changsha",
+                            "children": [
+                                {
+                                    "label": "芙蓉区",
+                                    "value": "furuqu"
+                                },
+                                {
+                                    "label": "天心区",
+                                    "value": "tianxinqu"
+                                },
+                                {
+                                    "label": "岳麓区",
+                                    "value": "yueluoqu"
+                                }
+                            ]
+                        }
+                    ]
+                }],
+            }
+        }
+    },
+    {
+        label: '对象',
+        icon: object,
+        template: {
+            type: 'object',
+            formItemProps: {
+                name: 'object',
+                label: 'object',
+                tooltip: 'object tip',
+                initialValue: 1,
+                rules: [
+                    {
+                        required: true,
+                        message: 'object required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                placeholder: '请输入数据选择',
+            }
+        }
+    },
+    {
+        label: '折叠组件',
+        icon: collapse,
+        template: {
+            type: 'collapse',
+            formItemProps: {
+                name: 'collapse',
+                label: 'collapse',
+                tooltip: 'collapse tip',
+                initialValue: 1,
+                rules: [
+                    {
+                        required: true,
+                        message: 'collapse required!!'
+                    }
+                ]
+            },
+            componentProps: {
+                options: [{
+                    "label": "湖南省",
+                    "value": "hunan",
+                    "children": [
+                        {
+                            "label": "长沙",
+                            "value": "changsha",
+                            "children": [
+                                {
+                                    "label": "芙蓉区",
+                                    "value": "furuqu"
+                                },
+                                {
+                                    "label": "天心区",
+                                    "value": "tianxinqu"
+                                },
+                                {
+                                    "label": "岳麓区",
+                                    "value": "yueluoqu"
+                                }
+                            ]
+                        }
+                    ]
+                }],
+            }
+        }
+    },
+]

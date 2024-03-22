@@ -1,0 +1,175 @@
+{
+    "basic_info": {
+        "type": "tools",
+        "category": "",
+        "name_zh": "VCF合并",
+        "name_en": "vcf_merge",
+        "desc": "",
+        "version": "1.0"
+    },
+    "tec_route": {
+        "name": "",
+        "path": ""
+    },
+    "parameter_desc": {
+        "data": [
+            {
+                "name": "输入文件示例(VCF文件)",
+                "desc": [
+                    "VCF文件，包含基因型信息的数据。"
+                ],
+                "demo_file": "./input_demo/geno.vcf",
+                "demo_table": {
+                    "data": [
+                        {
+                            "CHROM": "1",
+                            "POS": "16474",
+                            "ID": "AX-154067272",
+                            "REF": "T",
+                            "ALT": "G",
+                            "QUAL": ".",
+                            "FILTER": "PASS",
+                            "INFO": ".",
+                            "FORMAT": "GT",
+                            "Sample1": "0/0",
+                            "Sample2": "0/0",
+                            "Sample3": "0/0",
+                            "id": "idx_0"
+                        },
+                        {
+                            "CHROM": "1",
+                            "POS": "21791",
+                            "ID": "AX-165093805",
+                            "REF": "G",
+                            "ALT": "A",
+                            "QUAL": ".",
+                            "FILTER": "PASS",
+                            "INFO": ".",
+                            "FORMAT": "GT",
+                            "Sample1": "0/0",
+                            "Sample2": "0/0",
+                            "Sample3": "1/1",
+                            "id": "idx_1"
+                        },
+                        {
+                            "CHROM": "1",
+                            "POS": "26254",
+                            "ID": "AX-153942793",
+                            "REF": "A",
+                            "ALT": "T",
+                            "QUAL": ".",
+                            "FILTER": "PASS",
+                            "INFO": ".",
+                            "FORMAT": "GT",
+                            "Sample1": "0/0",
+                            "Sample2": "0/0",
+                            "Sample3": "0/0",
+                            "id": "idx_2"
+                        },
+                        {
+                            "CHROM": "1",
+                            "POS": "33908",
+                            "ID": "AX-154524182",
+                            "REF": "A",
+                            "ALT": "G",
+                            "QUAL": ".",
+                            "FILTER": "PASS",
+                            "INFO": ".",
+                            "FORMAT": "GT",
+                            "Sample1": "0/0",
+                            "Sample2": "0/1",
+                            "Sample3": "0/0",
+                            "id": "idx_3"
+                        },
+                        {
+                            "CHROM": "1",
+                            "POS": "34187",
+                            "ID": "AX-165098880",
+                            "REF": "T",
+                            "ALT": "C",
+                            "QUAL": ".",
+                            "FILTER": "PASS",
+                            "INFO": ".",
+                            "FORMAT": "GT",
+                            "Sample1": "0/0",
+                            "Sample2": "0/0",
+                            "Sample3": "0/0",
+                            "id": "idx_4"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "CHROM",
+                            "dataIndex": "CHROM",
+                            "key": "CHROM"
+                        },
+                        {
+                            "title": "POS",
+                            "dataIndex": "POS",
+                            "key": "POS"
+                        },
+                        {
+                            "title": "ID",
+                            "dataIndex": "ID",
+                            "key": "ID"
+                        },
+                        {
+                            "title": "REF",
+                            "dataIndex": "REF",
+                            "key": "REF"
+                        },
+                        {
+                            "title": "ALT",
+                            "dataIndex": "ALT",
+                            "key": "ALT"
+                        },
+                        {
+                            "title": "QUAL",
+                            "dataIndex": "QUAL",
+                            "key": "QUAL"
+                        },
+                        {
+                            "title": "FILTER",
+                            "dataIndex": "FILTER",
+                            "key": "FILTER"
+                        },
+                        {
+                            "title": "INFO",
+                            "dataIndex": "INFO",
+                            "key": "INFO"
+                        },
+                        {
+                            "title": "FORMAT",
+                            "dataIndex": "FORMAT",
+                            "key": "FORMAT"
+                        },
+                        {
+                            "title": "Sample1",
+                            "dataIndex": "Sample1",
+                            "key": "Sample1"
+                        },
+                        {
+                            "title": "Sample2",
+                            "dataIndex": "Sample2",
+                            "key": "Sample2"
+                        },
+                        {
+                            "title": "Sample3",
+                            "dataIndex": "Sample3",
+                            "key": "Sample3"
+                        }
+                    ]
+                },
+                "anno": ["示例展示略过了VCF的注释信息。"]
+            },
+            {
+                "name": "选择合并方式",
+                "desc": [
+                    "选择以交集或是并集的方式合并VCF文件中的位点。样本将以并集的方式合并；当多个VCF文件中有相同的样本，优先保留输入靠前的VCF文件中发生重叠的样本的数据信息。"
+                ],
+                "anno": []
+            }
+        ]
+    },
+    "result_show": {}
+}
