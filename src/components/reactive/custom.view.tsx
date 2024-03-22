@@ -1,30 +1,67 @@
 import { v4 } from 'uuid'
 import { cps } from './icons'
-import { useState } from 'react'
 import { ISchema } from './schema'
 import { Collapse, Form } from 'antd'
 import { Editor } from '@monaco-editor/react'
 import { CustomComponentMap } from './custom'
-import { Draggable } from './drag.view'
+import React, { useMemo, useState } from 'react'
 
 type DragEvent = React.DragEvent<HTMLElement>
 
 type RequiredSchema = Required<ISchema>
 
 export const CustomView: React.FC = () => {
-
     const [schema, setSchema] = useState<RequiredSchema[]>([])
-
+    const [curSchema, setCurSchema] = useState<RequiredSchema>()
+    const [startIndex, setStartIndex] = useState<number>(-1)
     const handleViewRenderDrop = (e: DragEvent) => {
         e.preventDefault()
         const data = e.dataTransfer.getData('text/plain')
         if (data) {
             const item = JSON.parse(data)
-            setSchema([...schema, item])
+            const items = [...schema, item]
+            setCurSchema(item)
+            setSchema(items)
         }
-        console.log(e.currentTarget)
+    }
+    const draggableClass = (item: RequiredSchema) => {
+        const tokens = new Set<string>()
+        tokens.add('drag-item')
+        if (curSchema && curSchema.id === item.id) {
+            tokens.add('active')
+        }
+        return [...tokens].join(' ')
+    }
+    const handleChange = (e: string | undefined) => {
+        try {
+            const changeItem = JSON.parse(e || '')
+            setSchema(prev => {
+                return prev.map(item => {
+                    if (curSchema) {
+                        if (item.id === curSchema!.id) {
+                            return {
+                                ...changeItem,
+                                id: curSchema.id
+                            }
+                        }
+                    }
+                    return item
+                })
+            })
+        } catch (error) {
+
+        }
+
 
     }
+    const exclude = useMemo(() => {
+        if (curSchema) {
+
+            const object = { ...curSchema }
+            Reflect.deleteProperty(object, 'id')
+            return JSON.stringify(object, undefined, 4)
+        }
+    }, [curSchema])
     return (
         <div className='custom-view'>
             <div className='custom-item-view'>
@@ -50,7 +87,7 @@ export const CustomView: React.FC = () => {
                 <div className='custom-title'>预览</div>
                 <div className='form-scorller'
                     onDrop={handleViewRenderDrop}
-                    onDragOver={e=>e.preventDefault()}
+                    onDragOver={e => e.preventDefault()}
                 >
                     <Form
                         layout='vertical'
@@ -58,14 +95,32 @@ export const CustomView: React.FC = () => {
                         requiredMark={false}
                     >
                         {schema.map((item, index) => (
-                            <Draggable
-                                id={index}
+                            <div
+                                draggable
                                 key={item.id}
+                                className={draggableClass(item)}
+                                onClick={() => setCurSchema(item)}
+                                onDrop={(e) => {
+                                    e.preventDefault()
+                                    setCurSchema(item)
+                                    e.stopPropagation()
+                                    const swapItems = swap([...schema], startIndex, index)
+                                    if (swapItems) {
+                                        setSchema(swapItems)
+                                    }
+                                }}
+                                onDragStart={() => {
+                                    setStartIndex(index)
+                                }}
+                                onDragLeave={(e) => {
+                                    e.preventDefault()
+                                    setCurSchema(undefined)
+                                }}
                             >
                                 <Form.Item {...item.formItemProps}>
                                     {CustomComponentMap[item.type](item)}
                                 </Form.Item>
-                            </Draggable>
+                            </div>
                         ))}
                     </Form>
                 </div>
@@ -77,7 +132,8 @@ export const CustomView: React.FC = () => {
                 <Editor
                     height={'60%'}
                     language='json'
-
+                    value={exclude}
+                    onChange={handleChange}
                     options={{ fontSize: 18 }}
                 />
                 <Collapse
@@ -90,8 +146,21 @@ export const CustomView: React.FC = () => {
                         }
                     ]}
                 />
-                <div className='empty'>编辑选中组件的代码</div>
+                {/* {<div style={{ display: curSchema ? 'none' : 'block' }} className='empty'>编辑选中组件的代码</div>} */}
             </div>
         </div>
     )
+}
+
+function swap(array: RequiredSchema[], index: number, targetIndex: number) {
+    if (index < 0 || index >= array.length || targetIndex < 0 || targetIndex >= array.length) {
+        console.log("Invalid index");
+        return;
+    }
+
+    let temp = array[index];
+    array[index] = array[targetIndex];
+    array[targetIndex] = temp;
+
+    return array;
 }

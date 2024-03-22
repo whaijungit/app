@@ -187,7 +187,13 @@
     margin-bottom: 10px;
     transition: .2s linear;
     border: 1px solid #DBEAFF;
-    &.dragging {
+
+    &.active {
+        border-color: var(--primary);
+    }
+
+    &.dragg-enter {
+        border-style: dashed;
         border-color: var(--primary);
     }
 }

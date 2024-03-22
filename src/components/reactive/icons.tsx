@@ -200,7 +200,7 @@ export const cps: ICpsItem[] = [
                 rules: [
                     {
                         required: true,
-                        message: '数据选择必填!!'
+                        message: '颜色选择必填!!'
                     }
                 ]
             },
