@@ -1,0 +1,108 @@
+.ant-dialog {
+    outline: none;
+    min-width: 480px;
+    padding: 40px 80px;
+    border-radius: 16px;
+    padding-bottom: 80px;
+    border-radius: 16px;
+    z-index: 99;
+    background: var(--light);
+    border-color: transparent;
+    box-shadow: 0px 8px 40px 0px rgba(255, 255, 255, 0.5);
+
+    &.register {
+        padding: 40px 63px;
+    }
+
+    .form-container {
+        .dialog-step-item {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+
+    .dialog-header {
+        display: flex;
+        margin-bottom: 52px;
+
+        .come-back {
+            top: 43px;
+            left: 30px;
+            display: flex;
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            align-items: center;
+            transition: .2s ease-in;
+
+            &:hover {
+                font-weight: 500;
+                transform: scale(1.09);
+            }
+        }
+
+        .dialog-title {
+            font-size: 20px;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .dialog-colse {
+        top: 42px;
+        right: 31px;
+        display: flex;
+        cursor: pointer;
+        border-radius: 5px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    .tabs {
+        display: flex;
+        font-size: 20px;
+        column-gap: 40px;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 52px;
+        justify-content: center;
+
+        .tabs-item {
+            cursor: pointer;
+            position: relative;
+            transition: .2s linear;
+
+            &.active {
+                font-weight: 600;
+                color: var(--primary);
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &::after {
+                left: 50%;
+                opacity: 0;
+                content: '';
+                width: 20px;
+                height: 2px;
+                bottom: -8px;
+                position: absolute;
+                display: inline-block;
+                transition: .2s linear;
+                transform: translateX(-50%);
+                background-color: var(--primary);
+            }
+        }
+    }
+}

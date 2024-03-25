@@ -1,3 +1,6 @@
+import { notification } from 'antd'
+import { ArgsProps } from 'antd/es/notification'
+
 export { SYSTEM_MENUS, TASK_MENUS, mapPremissionToMenuItems } from './menu'
 
 export { code, dimension, deliver, search, personality, plus, track, logo } from './svg'
@@ -15,5 +18,14 @@ export const awit = (duration: number = getRandom()) => {
 }
 
 export const getToken = () => {
-    localStorage.getItem('token')
+    return localStorage.getItem('token')
+}
+
+
+export const setToken = (jwt: string) => {
+    localStorage.setItem('token', jwt)
+}
+
+export const showMsg = (args: ArgsProps, type: 'success' | 'info' | 'warning' | 'error' = 'success', duration: number = 2) => {
+    notification[type]({ ...args, duration })
 }

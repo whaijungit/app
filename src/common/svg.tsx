@@ -207,6 +207,27 @@ export const deliver = (
     </svg>
 )
 
+export const user = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="4" fill="#B8BDCB" />
+        <path d="M4 18.8C4 16.149 6.14903 14 8.8 14H15.2C17.851 14 20 16.149 20 18.8C20 19.4627 19.4627 20 18.8 20H5.2C4.53726 20 4 19.4627 4 18.8Z" fill="#B8BDCB" />
+    </svg>
+)
+
+export const captcha = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5.62371 7.73828C6.83114 7.2173 9.52063 5.98539 11.2459 4.65412C11.6832 4.31673 12.3168 4.31673 12.7541 4.65412C14.4794 5.98539 17.1688 7.2173 18.3763 7.73828C18.7517 7.90028 19.0008 8.2687 18.9966 8.67758C18.9303 15.0526 17.852 17.9528 12.3781 20.3389C12.1382 20.4435 11.861 20.4455 11.6197 20.3441C6.1476 18.0447 5.06961 15.0578 5.00338 8.67756C4.99914 8.26868 5.24826 7.90028 5.62371 7.73828Z" fill="#B8BDCB" />
+        <path d="M10.0208 12.212L11.6383 14.9749L14.3403 10.3167" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
+
+export const pwd = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 8C9 6.34315 10.3431 5 12 5C13.6569 5 15 6.34315 15 8V9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9V8Z" stroke="#B8BDCB" strokeWidth="2" />
+        <path fillRule="evenodd" clipRule="evenodd" d="M7 9C5.89543 9 5 9.89543 5 11V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V11C19 9.89543 18.1046 9 17 9H7ZM12 16C12.5523 16 13 15.5523 13 15C13 14.4477 12.5523 14 12 14C11.4477 14 11 14.4477 11 15C11 15.5523 11.4477 16 12 16Z" fill="#B8BDCB" />
+    </svg>
+)
+
 export const search = (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="5.5" stroke="#B8BDCB" />

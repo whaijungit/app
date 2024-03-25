@@ -13,7 +13,7 @@ type RequiredSchema = Required<ISchema>
 export const CustomView: React.FC = () => {
     const [schema, setSchema] = useState<RequiredSchema[]>([])
     const [curSchema, setCurSchema] = useState<RequiredSchema>()
-    const [startIndex, setStartIndex] = useState<number>(-1)
+    const [startIndex, setStartIndex] = useState<number>()
     const handleViewRenderDrop = (e: DragEvent) => {
         e.preventDefault()
         const data = e.dataTransfer.getData('text/plain')
@@ -21,7 +21,8 @@ export const CustomView: React.FC = () => {
             const item = JSON.parse(data)
             const items = [...schema, item]
             setCurSchema(item)
-            setSchema(items)
+            setSchema(items);
+            (e.target as HTMLElement ).scrollIntoView({behavior: 'smooth',block: 'nearest'})
         }
     }
     const draggableClass = (item: RequiredSchema) => {
@@ -104,9 +105,12 @@ export const CustomView: React.FC = () => {
                                     e.preventDefault()
                                     setCurSchema(item)
                                     e.stopPropagation()
-                                    const swapItems = swap([...schema], startIndex, index)
-                                    if (swapItems) {
-                                        setSchema(swapItems)
+                                    if (startIndex) {
+                                        const swapItems = swap([...schema], startIndex, index)
+                                        if (swapItems && swapItems.length > 0) {
+                                            setSchema(swapItems)
+                                            setStartIndex(undefined)
+                                        }
                                     }
                                 }}
                                 onDragStart={() => {

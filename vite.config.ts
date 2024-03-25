@@ -12,5 +12,13 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 2000,
   },
+  server: {
+    proxy: {
+        '^/api': {
+            changeOrigin: true,
+            target: 'http://172.17.3.91:4001/',
+        }
+    }
+  },
   plugins: [react()],
 })
