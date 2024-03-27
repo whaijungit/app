@@ -15,7 +15,7 @@ export const HeaderTable: React.FC<IProps> = (props) => {
         <div className='system-section'>
             <div className='header-action'>
                 <div className="action-item">
-                    <Input {...props.inputProps} prefix={search} />
+                    <Input {...props.inputProps} prefix={search} allowClear />
                 </div>
                 <div className="action-item">
                     <Button

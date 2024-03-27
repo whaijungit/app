@@ -1,0 +1,321 @@
+{
+    "basic_info": {
+        "type": "pipelines",
+        "name_zh": "全基因组关联分析",
+        "name_en": "gwas",
+        "category": "GENOME",
+        "desc": "全基因组关联分析（GWAS）工具旨在简化大量数据的分析过程，提供易于使用的界面和丰富的数据可视化和分析功能。用户可以上传群体的基因型和表型数据，进行质量控制和统计分析，并根据需要绘制Manhattan图、QQ图和其他图表来展示分析结果。",
+        "version": "v1.0"
+    },
+    "tec_route": {
+        "name": "gwas_tec_route",
+        "path": ""
+    },
+    "parameter_desc": {
+        "data": [
+            {
+                "name": "任务名",
+                "desc": [
+                    "本次分析任务的名称，一个好的任务名称将便于您进行任务管理"
+                ]
+            },
+            {
+                "name": "表型文件",
+                "desc": [
+                    "本次分析使用的表型文件，格式示例如下："
+                ],
+                "demo_file": "./input_demo/demo.pheno.csv",
+                "demo_table": {
+                    "data": [
+                        {
+                            "Sample": "IND1001",
+                            "T1": "4.765820229",
+                            "T2": "-3.617678856",
+                            "T3": "24.430995",
+                            "id": "idx_0"
+                        },
+                        {
+                            "Sample": "IND1002",
+                            "T1": "12.40977159",
+                            "T2": "10.67409554",
+                            "T3": "20.71208364",
+                            "id": "idx_1"
+                        },
+                        {
+                            "Sample": "IND1003",
+                            "T1": "4.854498803",
+                            "T2": "0.602879071",
+                            "T3": "17.42915906",
+                            "id": "idx_2"
+                        },
+                        {
+                            "Sample": "IND1004",
+                            "T1": "33.22169998",
+                            "T2": "18.1082438",
+                            "T3": "22.6654044",
+                            "id": "idx_3"
+                        },
+                        {
+                            "Sample": "IND1005",
+                            "T1": "13.97416999",
+                            "T2": "12.83306535",
+                            "T3": "2.733684588",
+                            "id": "idx_4"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Sample",
+                            "dataIndex": "Sample",
+                            "key": "Sample"
+                        },
+                        {
+                            "title": "T1",
+                            "dataIndex": "T1",
+                            "key": "T1"
+                        },
+                        {
+                            "title": "T2",
+                            "dataIndex": "T2",
+                            "key": "T2"
+                        },
+                        {
+                            "title": "T3",
+                            "dataIndex": "T3",
+                            "key": "T3"
+                        }
+                    ]
+                },
+                "anno": [
+                    "表型文件需要有样本信息，列名为Sample；之后的列为表型数据，列名为表型名称，如：height，weight，length等。"
+                ]
+            },
+            {
+                "name": "基因型VCF文件",
+                "desc": [
+                    "本次分析使用的基因型VCF文件，VCF文件由多行组成，每一行代表一个位点上的变异信息。VCF文件头部主要记录文件元信息（meta information），以##开始。列名称以#作为起始，主要包括以下几列："
+                ],
+                "demo_file": "../../public_demo/example.vcf.tsv",
+                "demo_table": {
+                    "data": [
+                        {
+                            "CHROM": "chr01",
+                            "POS": "1151",
+                            "ID": ".",
+                            "REF": "C",
+                            "ALT": "A",
+                            "QUAL": "2048.49",
+                            "FILTER": "PASS",
+                            "INFO": "AC=16;AF=0.140351;AN=114;DP=537;ExcessHet=3.24134e-10;FS=0;InbreedingCoeff=0.878012;MLEAC=15;MLEAF=0.131579;MQ=59.2912;QD=26.6038;SOR=0.886531",
+                            "FORMAT": "GT:AD:DP:GQ:PL",
+                            "Sample1": "0/0:31,0:31:90:0,90,1350",
+                            "Sample2": "0/0:5,0:5:15:0,15,141",
+                            "Sample3": "1/1:0,21:21:63:572,63,0",
+                            "Sample4": "1/1:0,17:17:51:455,51,0",
+                            "Sample5": "0/0:7,0:7:21:0,21,189",
+                            "id": "idx_0"
+                        },
+                        {
+                            "CHROM": "chr01",
+                            "POS": "1249",
+                            "ID": ".",
+                            "REF": "A",
+                            "ALT": "C",
+                            "QUAL": "71.98",
+                            "FILTER": "PASS",
+                            "INFO": "AC=1;AF=0.00877193;AN=114;BaseQRankSum=-0.847;DP=487;ExcessHet=3.0103;FS=0;InbreedingCoeff=-0.0389286;MLEAC=1;MLEAF=0.00877193;MQ=60;MQRankSum=0;QD=7.99751;ReadPosRankSum=-1.103;SOR=0.446287",
+                            "FORMAT": "GT:AD:DP:GQ:PL",
+                            "Sample1": "0/0:14,0:14:31:0,31,394",
+                            "Sample2": "0/0:5,0:5:15:0,15,141",
+                            "Sample3": "0/0:17,0:17:39:0,39,585",
+                            "Sample4": "0/0:8,0:8:24:0,24,246",
+                            "Sample5": "0/1:5,4:9:89:89,0,144",
+                            "id": "idx_1"
+                        },
+                        {
+                            "CHROM": "chr01",
+                            "POS": "1277",
+                            "ID": ".",
+                            "REF": "T",
+                            "ALT": "C",
+                            "QUAL": "163.72",
+                            "FILTER": "PASS",
+                            "INFO": "AC=1;AF=0.00877193;AN=114;BaseQRankSum=-0.105;DP=588;ExcessHet=3.0103;FS=2.36258;InbreedingCoeff=-0.0287746;MLEAC=1;MLEAF=0.00877193;MQ=60;MQRankSum=0;QD=11.694;ReadPosRankSum=-0.52;SOR=0.223144",
+                            "FORMAT": "GT:AD:DP:GQ:PS:PGT:PID:PL",
+                            "Sample1": "0/0:17,0:17:45:.:.:.:0,45,675",
+                            "Sample2": "0/0:9,0:9:27:.:.:.:0,27,307",
+                            "Sample3": "0/0:16,0:16:5:.:.:.:0,5,414",
+                            "Sample4": "0/0:10,0:10:27:.:.:.:0,27,405",
+                            "Sample5": "0|1:9,5:14:99:1277:0|1:1277_T_C:181,0,363",
+                            "id": "idx_2"
+                        },
+                        {
+                            "CHROM": "chr01",
+                            "POS": "1299",
+                            "ID": ".",
+                            "REF": "T",
+                            "ALT": "C",
+                            "QUAL": "455.36",
+                            "FILTER": "PASS",
+                            "INFO": "AC=2;AF=0.0175439;AN=114;DP=614;ExcessHet=0.019607;FS=0;InbreedingCoeff=0.328819;MLEAC=2;MLEAF=0.0175439;MQ=60;QD=27.1708;SOR=2.14739",
+                            "FORMAT": "GT:AD:DP:GQ:PL",
+                            "Sample1": "0/0:15,0:15:0:0,0,237",
+                            "Sample2": "0/0:8,0:8:24:0,24,259",
+                            "Sample3": "0/0:13,0:13:39:0,39,363",
+                            "Sample4": "0/0:8,0:8:24:0,24,190",
+                            "Sample5": "1/1:0,13:13:39:489,39,0",
+                            "id": "idx_3"
+                        },
+                        {
+                            "CHROM": "chr01",
+                            "POS": "1411",
+                            "ID": ".",
+                            "REF": "A",
+                            "ALT": "G",
+                            "QUAL": "78.38",
+                            "FILTER": "PASS",
+                            "INFO": "AC=1;AF=0.00877193;AN=114;BaseQRankSum=0.349;DP=694;ExcessHet=3.0103;FS=0;InbreedingCoeff=-0.0174374;MLEAC=1;MLEAF=0.00877193;MQ=60;MQRankSum=0;QD=6.53131;ReadPosRankSum=1.427;SOR=0.367725",
+                            "FORMAT": "GT:AD:DP:GQ:PL",
+                            "Sample1": "0/0:8,0:8:24:0,24,264",
+                            "Sample2": "0/0:13,0:13:39:0,39,433",
+                            "Sample3": "0/0:9,0:9:21:0,21,315",
+                            "Sample4": "0/0:5,0:5:15:0,15,203",
+                            "Sample5": "0/1:8,4:12:96:96,0,212",
+                            "id": "idx_4"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "CHROM",
+                            "dataIndex": "CHROM",
+                            "key": "CHROM"
+                        },
+                        {
+                            "title": "POS",
+                            "dataIndex": "POS",
+                            "key": "POS"
+                        },
+                        {
+                            "title": "ID",
+                            "dataIndex": "ID",
+                            "key": "ID"
+                        },
+                        {
+                            "title": "REF",
+                            "dataIndex": "REF",
+                            "key": "REF"
+                        },
+                        {
+                            "title": "ALT",
+                            "dataIndex": "ALT",
+                            "key": "ALT"
+                        },
+                        {
+                            "title": "QUAL",
+                            "dataIndex": "QUAL",
+                            "key": "QUAL"
+                        },
+                        {
+                            "title": "FILTER",
+                            "dataIndex": "FILTER",
+                            "key": "FILTER"
+                        },
+                        {
+                            "title": "INFO",
+                            "dataIndex": "INFO",
+                            "key": "INFO"
+                        },
+                        {
+                            "title": "FORMAT",
+                            "dataIndex": "FORMAT",
+                            "key": "FORMAT"
+                        },
+                        {
+                            "title": "Sample1",
+                            "dataIndex": "Sample1",
+                            "key": "Sample1"
+                        },
+                        {
+                            "title": "Sample2",
+                            "dataIndex": "Sample2",
+                            "key": "Sample2"
+                        },
+                        {
+                            "title": "Sample3",
+                            "dataIndex": "Sample3",
+                            "key": "Sample3"
+                        },
+                        {
+                            "title": "Sample4",
+                            "dataIndex": "Sample4",
+                            "key": "Sample4"
+                        },
+                        {
+                            "title": "Sample5",
+                            "dataIndex": "Sample5",
+                            "key": "Sample5"
+                        }
+                    ]
+                },
+                "anno": [
+                    "CHROM：表示变异所在染色体位置。",
+                    "POS：表示变异起始坐标。",
+                    "ID：表示变异ID，一般常用的有rs编号或vep编号等。用户也可以根据具体问题自行设定编号，空缺时记为“.”。",
+                    "REF：表示位点在参考基因组上的记录。",
+                    "ALT：表示位点可能出现的变异情况。",
+                    "QUAL：以Phred（即-log10）格式表示变异可靠性。通过不同变异检测软件得到的结果中，该项记录一般无可比性。",
+                    "FILTER：表示过滤方式该部分用户也可以自定义，对于不同过滤标准可以进行不同的命名；但是对于通过过滤标准的，统一记为PASS。需要注意的是，对于一般的vcf处理软件来说，FILER只标记某个变异是否通过过滤条件。而不是删除记录。",
+                    "INFO：该部分记录的变异的评价性指标以及注释信息，例如AC表示的等因突变的数量。该部分在不同的变异检测软件给出的结果也是不同的。",
+                    "FORMAT：个体区域格式信息记录样本变异的记录格式。由于vcf文件样本记录中除了变异本身是否发生之外，还会记录针对变异的其他信息，例如对应位点的深度（AD）、基因型质量（GQ）等。FORMAT字段规定了这些信息的基本格式。",
+                    "个体信息： 个体信息是记录某个样本的具体变异情况，其包含的基本信息格式标准需要符合记录的FORMAT格式。特别需要注意的是基因型GT信息，如果是没有经过phased数据，以/分隔两个等位位点；如果经过phased则以|分隔。其余信息，均会在FORMAT字段有详细说明。"
+                ]
+            }
+        ]
+    },
+    "result_show": {
+        "data": [
+            {
+                "title": "全基因组关联分析结果展示",
+                "desc": [],
+                "data": [
+                    {
+                        "name": "QQ_plot",
+                        "type": "img",
+                        "label": "QQ图",
+                        "anno": [
+                            "QQ图是Quantile-Quantile图（分位数-分位数图）的简称。",
+                            "QQ图可以用来描述GWAS数据中观察到的遗传变异是否呈现出预期的统计特征。",
+                            "图形的X轴表示样本的理论分位数（或标准正态分布的Z值），Y轴表示实际观察到的分位数。",
+                            "如果实际观察到的分位数与理论分布相同，则说明GWAS数据中不存在显著的系统性偏差。",
+                            "如果观察到的分位数明显偏离预期，可能表明存在一些问题，例如：数据中存在未知的结构性变异或种族差异。实验误差较大，导致识别到许多假阳性信号。统计方法选择不当，如过度控制误差率等。",
+                            "QQ图是一个强有力的工具，可用于评估GWAS数据中遗传变异与特定性状之间的关联是否真实可靠。"
+                        ],
+                        "data": [
+                            {
+                                "name": "QQ_plot",
+                                "path": "gwas/QQ_plot.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Manhattan_plot",
+                        "type": "img",
+                        "label": "曼哈顿图",
+                        "anno": [
+                            "Manhattan plot,是 GWAS 分析中常用的可视化工具，可以帮助分析人员直观地识别潜在的遗传信号。",
+                            "在曼哈顿图中，每个点代表一个测试的 SNP 位点，其中 x 轴表示染色体上的位置，y 轴表示该 SNP 的负对数 P 值，通常以 -log10(P-value) 表示。",
+                            "当某些 SNP 显示出非常显著的 P 值时，就会在曼哈顿图上形成高峰，这些高峰通常被认为是与疾病相关的基因变异。",
+                            "曼哈顿图是一种直观、易于理解的工具，可以帮助识别基因与复杂性状之间的关联。"
+                        ],
+                        "": [
+                            {
+                                "name": "manhattan_plot",
+                                "path": "gwas/manhattan_plot.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

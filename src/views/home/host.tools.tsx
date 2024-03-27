@@ -1,4 +1,4 @@
-import mockImg from '@/assets/图片2 1.png'
+import mockImg from './host.tool.png'
 export const HostCardGroup: React.FC = () => {
     return (
         <div className='host'>

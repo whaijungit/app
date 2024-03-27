@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import { ISchema } from "./core"
+import React, { useEffect, useState } from "react"
 import { Button, Col, Input, InputNumber, Row, Slider, Collapse as AntdCollapse } from "antd"
-import { ISchema } from "./schema"
 
 interface InputItem {
     id: string
@@ -32,7 +32,7 @@ export const ChooseData: React.FC = () => {
     )
 }
 
-export const DynamicsChooseData: React.FC = () => {
+export const DynamicsChooseData: React.FC<any> = (props) => {
     const [inputs, setInputs] = useState<InputItem[]>([])
 
     const handleClickAdd: React.MouseEventHandler<HTMLElement> = (e) => {
@@ -43,6 +43,12 @@ export const DynamicsChooseData: React.FC = () => {
     const handleRemoveItem = (item: InputItem) => {
         setInputs(prev => prev.filter(it => it.id !== item.id))
     }
+
+    useEffect(() => {
+        if (props.value) {
+            setInputs(props.value.split())
+        }
+    }, props)
 
     return (
         <div className='choose-data'>

@@ -1,6 +1,6 @@
-import { ISchema } from './schema'
-import { ChooseData, Collapse, DynamicsChooseData, ObjectFC, SliderNumebr } from './components.view'
+import { ISchema } from './core'
 import { Cascader, Checkbox, ColorPicker, Input, Radio, Select, Switch } from 'antd'
+import { ChooseData, Collapse, DynamicsChooseData, ObjectFC, SliderNumebr } from './components'
 
 export const CustomComponentMap = {
     collapse: (option: ISchema) => <Collapse  {...option} />,

@@ -33,6 +33,11 @@ http.interceptors.response.use(
     }
     , failed => {
         if (failed instanceof AxiosError) {
+            if (failed.response?.data) {
+                if (failed.response.data.code === 401) {
+                    localStorage.removeItem('token')
+                }
+            }
             notification.error({ message: failed.response?.data.msg, duration: 3 })
             return Promise.reject(failed.response?.data)
         }

@@ -1,5 +1,5 @@
 import http from "./http"
-import { API } from "@/types/common"
+import { API, APIPaging, IUser } from "@/types/common"
 
 export const api = {
     async register(payload: any) {
@@ -9,9 +9,9 @@ export const api = {
         return await http.post('/oauth/login/', payload) as API<any>
     },
     async info(payload?: any) {
-        return await http.get('/oauth/info/', { params: payload }) as API<any>
+        return await http.get('/oauth/info/', { params: payload }) as API<IUser>
     },
-    async whoImA() {
-        return await this.info()
+    async findList(params?: any) {
+        return await http.get('/system/users/', { params }) as API<APIPaging<IUser>>
     }
 }

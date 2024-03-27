@@ -1,5 +1,5 @@
 import App from './App'
-import './worker/monaco'
+import './monaco.worker'
 import './less/index.less'
 import 'nprogress/nprogress.css'
 import { store } from './stores'

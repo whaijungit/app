@@ -1,17 +1,18 @@
 {
     "basic_info": {
         "type": "tools",
-        "category": "",
-        "name_zh": "VCF合并",
-        "name_en": "vcf_merge",
-        "desc": "",
-        "version": "1.0"
+        "name_zh": "云顶",
+        "name_en": "toc",
+        "category": "basic_plotting",
+        "desc": "xxx",
+        "version": "0.0.2"
     },
     "tec_route": {
         "name": "",
         "path": ""
     },
     "parameter_desc": {
+        "title": "参数说明",
         "data": [
             {
                 "name": "输入文件示例(VCF文件)",

@@ -1,5 +1,5 @@
 import { notification } from 'antd'
-import { ArgsProps } from 'antd/es/notification'
+import type { ArgsProps } from 'antd/es/notification'
 
 export { SYSTEM_MENUS, TASK_MENUS, mapPremissionToMenuItems } from './menu'
 
@@ -28,4 +28,15 @@ export const setToken = (jwt: string) => {
 
 export const showMsg = (args: ArgsProps, type: 'success' | 'info' | 'warning' | 'error' = 'success', duration: number = 2) => {
     notification[type]({ ...args, duration })
+}
+/**
+ * @param moveIndex 移动元素下标
+ * @param targetIndex 目标元素下标
+ * @description 改变数组元素位置顺序
+*/
+export const swapArray = <T = any>(arr: T[], moveIndex: number, targetIndex: number) => {
+    let temp = arr[moveIndex]
+    arr[moveIndex] = arr[targetIndex]
+    arr[targetIndex] = temp
+    return [...arr]
 }

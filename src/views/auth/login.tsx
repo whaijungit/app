@@ -9,6 +9,7 @@ import { setToken, showMsg } from '@/common'
 import { captcha, pwd, user } from '@/common/svg'
 import { useEffect, useRef, useState } from "react"
 import { permissionActions } from '@/stores/permission'
+import { auth } from '@/common/auth'
 
 interface IProps {
     open?: boolean
@@ -73,11 +74,8 @@ export const Login: React.FC<IProps & IEvents> = (props) => {
         try {
             const result = await api.login(payload)
             setToken(result.data.token)
-            const { code, data } = await api.info()
-            dispatch(userActions.setUser(data))
-            dispatch(userActions.setIsLogin(code === 200))
-            dispatch(permissionActions.setActions(data.auths.actions))
-            dispatch(permissionActions.setPermission(data.auths.menus))
+            const resp = await api.info()
+            auth(dispatch, resp)
             showMsg({ message: '登录成功' })
             closeModal()
         } catch (error) {

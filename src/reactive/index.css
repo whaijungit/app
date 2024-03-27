@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+}
+
+.uiconfig-view {
+    width: 100%;
+    display: flex;
+    height: calc(100vh - 115px);
+}
+
+.uiconfig-view .config-view-item {
+    flex: 1 auto;
+    overflow-y: auto;
+    padding: 16px 20px;
+    background: #FFF;
+    box-shadow: -1px 0px 0px 0px #E8EAF0 inset;
+}
+
+.uiconfig-view .config-view-item.comps,
+.uiconfig-view .config-view-item.upload-area {
+    width: 210px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 210px;
+}
+
+.uiconfig-view .config-view-item.upload-area {
+    flex: 0 0 412px;
+}
+
+.uiconfig-view .config-view-item .view-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #67717D;
+}
+
+.uiconfig-view .config-view-item.render {
+    width: 740px;
+    flex: 0 0 740px;
+}
+
+.uiconfig-view .config-view-item.editor-readme {
+    width: 740px;
+}
+
+.uiconfig-view .config-view-item.editor-readme .editor {
+    height: calc(100% - 160px);
+    margin-bottom: 20px;
+}
+
+.uiconfig-view .config-view-item.comps {
+    padding: 16px 10px;
+}
+
+.choose-data {
+    .inputs {
+        margin-top: 10px;
+        display: flex;
+        row-gap: 10px;
+        flex-direction: column;
+
+        .input-item-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .choose-data-action {
+        display: flex;
+        margin-top: 5px;
+        align-items: center;
+        justify-content: space-between;
+
+        .dowload {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+
+    }
+
+    .add-input {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+
+.uiconfig-view .config-view-item .cps-items {
+    gap: 8px;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.uiconfig-view .config-view-item .cps-items .cps-item {
+    gap: 1px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid #E8EAF0;
+    background: #FFF;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    padding: 6px 5px 4px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.drag-container {
+    width: 100%;
+    padding: 4px;
+    overflow: auto;
+    margin-top: 12px;
+    transition: .2s linear;
+    border-radius: 4px;
+    min-height: 140px;
+    border: 2px solid rgba(255, 255, 255, 0.01);
+
+    &.active {
+        border-color: var(--primary);
+    }
+
+    &.drop-enter {
+        border-style: dashed;
+        border-color: var(--primary);
+        opacity: 0.5;
+    }
+
+    .custom-item {
+        padding: 4px;
+        position: relative;
+        border-radius: 4px;
+        margin-bottom: 40px;
+        transition: .2s linear;
+        background-color: #fff;
+        border: 1px solid #ffffff;
+
+        &.active {
+            border: 1px solid var(--primary);
+        }
+
+        &.drop-enter {
+            border-style: dashed;
+            border-color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .action {
+            right: 10px;
+            bottom: -25px;
+            cursor: pointer;
+            position: absolute;
+        }
+    }
+}
+
+.uiconfig-view .config-view-item.comps {
+    display: block;
+}
+
+.ant-tabs-left>.ant-tabs-content-holder>.ant-tabs-content>.ant-tabs-tabpane {
+    padding-left: 0px !important;
+}

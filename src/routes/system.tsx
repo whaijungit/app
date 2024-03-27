@@ -12,6 +12,15 @@ const Tools = lazy(
     }
 )
 
+const Users = lazy(
+    async () => {
+        start()
+        const comp = await import('@/views/system/users')
+        done()
+        return comp
+    }
+)
+
 export const systemkRoutes: RouteObject[] = [
     {
         path: '/system',
@@ -23,7 +32,7 @@ export const systemkRoutes: RouteObject[] = [
             },
             {
                 path: 'users',
-                element: <>users</>,
+                element: <Suspense children={<Users/>} />,
             },
             {
                 path: 'roles',

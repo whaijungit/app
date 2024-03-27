@@ -14,7 +14,7 @@ export interface APIPaging<T> {
 
 export interface IUser {
     id: number
-    auth: Auth
+    auths: Auth
     email: string
     mobile: string
     avatar: string
@@ -23,6 +23,7 @@ export interface IUser {
     realname: string
     research: string
     profession: string
+    is_active: boolean
     user_storage_info: string
     is_superuser: "True" | "False"
 }

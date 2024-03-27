@@ -1,5 +1,15 @@
 import React from "react"
-import { ISchema } from "./schema"
+import { v4 } from "uuid"
+import { FormItemProps } from "antd"
+import { ComponentType } from "./map"
+
+export interface ISchema {
+    type: ComponentType
+    id?: string | number
+    componentProps: any
+    formItemProps: FormItemProps,
+}
+
 
 export const Input = (
     <svg width="60" height="22" viewBox="0 0 60 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,6 +161,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'text',
             formItemProps: {
+                name: v4(),
                 label: '文本组件',
                 tooltip: '文本tip',
                 rules: [
@@ -172,6 +183,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'chooseData',
             formItemProps: {
+                name: v4(),
                 label: '文本组件',
                 tooltip: '数据选择tip',
                 rules: [
@@ -193,7 +205,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'color',
             formItemProps: {
-                name: 'color',
+                name: v4(),
                 label: '颜色选择',
                 tooltip: '颜色选择tip',
                 initialValue: '#ff2200',
@@ -215,7 +227,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'switch',
             formItemProps: {
-                name: 'switch',
+                name: v4(),
                 label: '开关',
                 tooltip: 'switch tip',
                 initialValue: true,
@@ -237,7 +249,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'radio',
             formItemProps: {
-                name: 'radio',
+                name: v4(),
                 label: 'radio',
                 tooltip: 'radio tip',
                 initialValue: 0,
@@ -269,10 +281,10 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'checkbox',
             formItemProps: {
-                name: 'checkbox',
+                name: v4(),
                 label: 'checkbox',
                 tooltip: 'checkbox tip',
-                initialValue: 0,
+                initialValue: ["冰淇淋"],
                 rules: [
                     {
                         required: true,
@@ -305,7 +317,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'select',
             formItemProps: {
-                name: 'select',
+                name: v4(),
                 label: 'select',
                 initialValue: "冰淇淋",
                 tooltip: 'select tip',
@@ -341,7 +353,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'selects',
             formItemProps: {
-                name: 'selects',
+                name: v4(),
                 label: 'selects',
                 tooltip: 'selects tip',
                 initialValue: ['冰淇淋'],
@@ -377,7 +389,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'sliderNumber',
             formItemProps: {
-                name: 'sliderNumber',
+                name: v4(),
                 label: 'sliderNumber',
                 tooltip: 'sliderNumber tip',
                 initialValue: 1,
@@ -401,7 +413,7 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'cascader',
             formItemProps: {
-                name: 'cascader',
+                name: v4(),
                 label: '级联选择器',
                 tooltip: 'cascader tip',
                 initialValue: ["hunan", "changsha", "furuqu"],
@@ -448,10 +460,10 @@ export const cps: ICpsItem[] = [
         template: {
             type: 'dynamicsChooseData',
             formItemProps: {
-                name: 'dynamics',
+                name: v4(),
                 label: '动态删减',
+                initialValue: ['phonetype.csv'],
                 tooltip: 'dynamics ChooseData tip',
-                initialValue: 1,
                 rules: [
                     {
                         required: true,
@@ -462,30 +474,7 @@ export const cps: ICpsItem[] = [
             componentProps: {
                 allowClear: true,
                 placeholder: '请输入数据选择',
-                options: [{
-                    "label": "湖南省",
-                    "value": "hunan",
-                    "children": [
-                        {
-                            "label": "长沙",
-                            "value": "changsha",
-                            "children": [
-                                {
-                                    "label": "芙蓉区",
-                                    "value": "furuqu"
-                                },
-                                {
-                                    "label": "天心区",
-                                    "value": "tianxinqu"
-                                },
-                                {
-                                    "label": "岳麓区",
-                                    "value": "yueluoqu"
-                                }
-                            ]
-                        }
-                    ]
-                }],
+
             }
         }
     },
